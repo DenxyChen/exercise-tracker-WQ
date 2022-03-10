@@ -1,10 +1,11 @@
 import React from 'react';
+import Table from '../components/Table';
 
-export default function EditExercisePage() {
+export default function EditExercisePage({ exercise }) {
     return (
       <article>
         <h2>Edit Exercise Page</h2>
-        <p className="page-text">Use the navigation bar above to place an online order or find a store nearby.</p>
+        <Table exercises={[exercise]}/>
       </article>
     );
 }
