@@ -1,8 +1,7 @@
 import React from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa'
-import DeleteButton from './DeleteButton';
 
-export default function Row({ exercise, onDelete }) {
+export default function Row({ exercise, onDelete, onEdit }) {
     return (
         <tr>
             <td>{exercise.name}</td>
@@ -10,7 +9,10 @@ export default function Row({ exercise, onDelete }) {
             <td>{exercise.weight}</td>
             <td>{exercise.unit}</td>
             <td>{exercise.date}</td>
-            <td><FaEdit /><FaTrash onClick={() => onDelete(exercise._id)}/></td>
+            <td>
+                <FaEdit onClick={() => onEdit(exercise)}/>
+                <FaTrash onClick={() => onDelete(exercise._id)}/>
+            </td>
         </tr>
     );
 }

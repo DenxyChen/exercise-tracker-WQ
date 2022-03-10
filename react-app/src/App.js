@@ -2,7 +2,7 @@
 import './App.css';
 
 // dependencies
-import React from 'react';
+import { useState, React} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // pages
@@ -14,6 +14,8 @@ import EditExercisePage from './pages/EditExercisePage';
 import Navigation from './components/Navigation';
 
 export default function App() {
+  const [exerciseToEdit, setExerciseToEdit] = useState([]);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -26,9 +28,9 @@ export default function App() {
         <Navigation />
 
         <Routes>
-          <Route path="/" exact element={<HomePage />} />
+          <Route path="/" exact element={<HomePage setExerciseToEdit={setExerciseToEdit}/>} />
           <Route path="/add-exercise" element={<CreateExercisePage />} />
-          <Route path="/edit-exercise/:id" element={<EditExercisePage />} />
+          <Route path="/edit-exercise" element={<EditExercisePage exerciseToEdit={exerciseToEdit}/>} />
         </Routes>
 
         <footer>
