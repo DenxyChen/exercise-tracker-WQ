@@ -11,20 +11,37 @@ export default function CreateExercisePage() {
   const [unit, setUnit] = useState("lbs");
   const [date, setDate] = useState("");
 
+  const validateDate = () => {
+    if(date.length !== 8) {
+      return false;
+    }
+    else if(date[2] !== '-' || date[5] !== '-') {
+      return false;
+    }
+    else if(date.charCodeAt(0) > 49 || date.charCodeAt(3) > 51) {
+      return false;
+    }
+    return true;
+  }
+  
   const validateForm = () => {
     if (name === "" || reps === "" || weight === "" || date === "") {
       alert("All fields are required!");
+    }
+    else if(!validateDate()){
+      alert("Invalid date. Please follow the format MM-DD-YY.");
     }
     else{
       addExercise();
     }
   }
 
+
   const addExercise = async () => {
     const newExercise = {name, reps, weight, unit, date};
     console.log(newExercise)
 
-    const response = await fetch('/exercises', {
+    const res = await fetch('/exercises', {
       method: 'POST',
       body: JSON.stringify(newExercise),
       headers: {
@@ -32,7 +49,13 @@ export default function CreateExercisePage() {
       }
     });
 
-    navigate('/');
+    if(res.status === 201) {
+      alert(`${res.status}: ${name} successfully added. Redirecting to home page.`);
+      navigate('/');
+    }
+    else{
+      alert(`${res.status}: An error occured. Please refresh the page and try again.`);
+    }
   }
 
     return (
@@ -58,12 +81,14 @@ export default function CreateExercisePage() {
                     </select>
                 </td>
                 <td>
-                    <input type="text" name="date" placeholder="MM-DD-YY" id="date" value={date} onChange={e => setDate(e.target.value)}/>
+                    <input type="text" name="date" placeholder="MM-DD-YY" id="date" value={date} onChange={e => setDate(e.target.value.trim())}/>
+                </td>
+                <td>
+                  <button onClick={() => validateForm()}>Save</button>
                 </td>
             </tr>
           </tbody>
         </table>
-        <button onClick={() => validateForm()}>Save</button>
       </article>
     );
 }

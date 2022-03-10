@@ -18,7 +18,7 @@ app.post("/exercises", (req, res) => {
         })
         .catch(error => {
             console.log(error)
-            res.status(500).send({ error: 'Request failed' });
+            res.status(500).type('application/json').send({ error: 'Request failed' });
         });
 });
 
@@ -29,7 +29,7 @@ app.get("/exercises", (req, res) => {
         })
         .catch(error => {
             console.log(error)
-            res.status(500).send({ error: 'Request failed' });
+            res.status(500).type('application/json').send({ error: 'Request failed' });
         });
 });
 
@@ -37,22 +37,32 @@ app.put("/exercises/:id", (req, res) => {
     console.log(req.params)
     exercises.setExercise(req.params.id, req.body)
         .then(exercise => {
-            res.type('application/json').status(200).send(exercise);
+            if(exercise !== null) {
+                res.type('application/json').status(200).send(exercise);
+            }
+            else{
+                res.status(404).type('application/json').send({ 'Error': 'Exercise with given ID not found.' });
+            }
         })
         .catch(error => {
             console.log(error)
-            res.status(500).send({ error: 'Request failed' });
+            res.status(500).type('application/json').send({ error: 'Request failed' });
         });
 });
 
 app.delete("/exercises/:id", (req, res) => {
     exercises.removeExercise(req.params.id)
-        .then(exercise => {
-            res.status(204)
+        .then(deletedCount => {
+            if(deletedCount === 1) {
+                res.status(204).send();
+            }
+            else{
+                res.status(404).type('application/json').send({ 'Error': 'Exercise with given ID not found.' });
+            }
         })
         .catch(error => {
             console.log(error)
-            res.status(500).send({ error: 'Request failed' });
+            res.status(500).type('application/json').send({ error: 'Request failed' });
         });
 });
 

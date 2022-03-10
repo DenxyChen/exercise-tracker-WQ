@@ -28,7 +28,7 @@ export default function HomePage() {
 
   useEffect(() => {
     loadExerciseData();
-  }, [exerciseData]);
+  }, []);
 
   return (
     <article>

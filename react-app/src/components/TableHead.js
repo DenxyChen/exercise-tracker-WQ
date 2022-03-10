@@ -10,6 +10,7 @@ export default function TableHead( ) {
                 <th>Weight</th>
                 <th>Unit</th>
                 <th>Date</th>
+                <th> </th>
             </tr>
         </thead>
     );
