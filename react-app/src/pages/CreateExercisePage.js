@@ -23,19 +23,6 @@ export default function CreateExercisePage() {
     }
     return true;
   }
-  
-  const validateForm = () => {
-    if (name === "" || reps === "" || weight === "" || date === "") {
-      alert("All fields are required!");
-    }
-    else if(!validateDate()){
-      alert("Invalid date. Please follow the format MM-DD-YY.");
-    }
-    else{
-      addExercise();
-    }
-  }
-
 
   const addExercise = async () => {
     const newExercise = {name, reps, weight, unit, date};
@@ -51,10 +38,22 @@ export default function CreateExercisePage() {
 
     if(res.status === 201) {
       alert(`${res.status}: ${name} successfully added. Redirecting to home page.`);
-      navigate('/');
+      navigate('/')
     }
     else{
       alert(`${res.status}: An error occured. Please refresh the page and try again.`);
+    }
+  }
+  
+  const validateForm = () => {
+    if (name === "" || reps === "" || weight === "" || date === "") {
+      alert("All fields are required!");
+    }
+    else if(!validateDate()){
+      alert("Invalid date. Please follow the format MM-DD-YY.");
+    }
+    else{
+      addExercise();
     }
   }
 
