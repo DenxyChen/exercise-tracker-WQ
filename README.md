@@ -2,26 +2,6 @@
 
 **Exercise Tracker** is a web app that allows a user to keep a record of their workouts.
 
-## Starting Up
-
-To start the REST API client, navigate to the directory **rest-api** and run the commands:
-
-```
-npm install
-npm start
-```
-
-On success, this will start the backend service on localhost:3000.
-
-To start the React app, navigate to the directory **react-app** and run the commands:
-
-```
-npm install
-npm start
-```
-
-On success, this will start the frontend service on localhost:8000 which is proxied to the REST API.
-
 
 ## User Stories
 
@@ -49,6 +29,26 @@ Here's a walkthrough of implemented user stories:
 <img src='https://github.com/DenxyChen/exercise-tracker-WQ/blob/main/misc/cs290-exercise-tracker.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [ScreenToGif](https://www.screentogif.com/).
+
+## Starting Up
+
+To start the REST API client, navigate to the directory **rest-api** and run the commands:
+
+```
+npm install
+npm start
+```
+
+On success, this will start the backend service on localhost:3000.
+
+To start the React app, navigate to the directory **react-app** and run the commands:
+
+```
+npm install
+npm start
+```
+
+On success, this will start the frontend service on localhost:8000 which is proxied to the REST API.
 
 ## Notes
 
