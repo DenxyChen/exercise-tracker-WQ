@@ -4,7 +4,7 @@
 
 ## Starting Up
 
-To start the REST API client, navigate to the directory *rest-api* and run the commands:
+To start the REST API client, navigate to the directory **rest-api** and run the commands:
 
 ```
 npm install
@@ -13,7 +13,7 @@ npm start
 
 On success, this will start the backend service on localhost:3000.
 
-To start the React app, navigate to the directory *react-app* and run the commands:
+To start the React app, navigate to the directory **react-app** and run the commands:
 
 ```
 npm install
