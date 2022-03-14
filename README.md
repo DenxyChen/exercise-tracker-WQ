@@ -2,6 +2,27 @@
 
 **Exercise Tracker** is a web app that allows a user to keep a record of their workouts.
 
+## Starting Up
+
+To start the REST API client, navigate to the directory *rest-api* and run the commands:
+
+```
+npm install
+npm start
+```
+
+On success, this will start the backend service on localhost:3000.
+
+To start the React app, navigate to the directory *react-app* and run the commands:
+
+```
+npm install
+npm start
+```
+
+On success, this will start the frontend service on localhost:8000 which is proxied to the REST API.
+
+
 ## User Stories
 
 The following **required** functionality is completed:
