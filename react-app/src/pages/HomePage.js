@@ -39,7 +39,7 @@ export default function HomePage({ setExerciseToEdit }) {
     <article>
       <h2>Home Page</h2>
       <Table exercises={exerciseData} onDelete={onDelete} onEdit={onEdit}/>
-      <button onClick={onAdd}>Add</button>
+      <button id="add-button" onClick={onAdd}>Add an exercise</button>
     </article>
   );
 }
