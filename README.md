@@ -17,7 +17,8 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [x] PUT and DELETE requests with unknown IDs sends status code 404.
+- [ ] Set the .catch error messages to 500 for create and optionally for one of the 400x for update and delete.
+  - [x] PUT and DELETE requests with unknown IDs sends status code 404.
 - [x] Date is validated to be in the MM-DD-YY format.
 
 ## Video Walkthrough
